@@ -11,10 +11,22 @@ from rest_framework.serializers import BaseSerializer
 # OpenAPI requires its own typings. Below are minimal typing.
 # TODO: evaluate using a 3rd party typing package for this, e.g.: https://github.com/meeshkan/openapi-typed
 
+class DRFOpenAPIInfoContact(TypedDict, total=False):
+        name: str
+        url: str
+        email: str
+
+class DRFOpenAPIInfoLicense(TypedDict, total=False):
+    name: str
+    url: str
+
 class DRFOpenAPIInfo(TypedDict, total=False):
     title: str
-    version: str
     description: str
+    termsOfService: str
+    contact: DRFOpenAPIInfoContact
+    licencse: DRFOpenAPIInfoLicense
+    version: str
 
 class DRFOpenAPISchema(TypedDict, total=False):
     openapi: str
